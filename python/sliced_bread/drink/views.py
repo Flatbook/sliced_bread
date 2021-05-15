@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import View
+from django.views.generic import DetailView
 from .models import OrderModel, unique_code_generator, name_generator
 # Create your views here.
 
@@ -19,7 +20,7 @@ class Order(View):
         quantity = request.POST.get('quantity')
 
         if (name==''):
-            name = name_generatior()
+            name = name_generator()
 
         if(quantity==''):
             quantity = 12
@@ -47,3 +48,7 @@ class Order(View):
         }
 
         return render(request, 'drink/order_confirmation.html', context)
+
+class OrderDetailView(DetailView):
+    model = OrderModel
+    template_name = 'order_detail.html'

@@ -14,14 +14,30 @@
     <div class="container" mb-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
-                <h1>Placeholder</h1>
+                <h1 style="font-family: 'Roboto Condensed', sans-serif; font-weight:bold; color: antiquewhite;">ESPRESSO SUMMER</h1>
             </div>
         </div>
         <div class="row justify-content-center mt-1">
             <div class="card col-md-5 col-sm-12 offset-md-1 p-4 text-center bg-dark">
-                <a href="{% url 'order' %}" class="btn btn-outline-light">Order Now</a>
+                <a href="{% url 'order' %}" class="btn btn-dark btn-outline-light">Start Sipping</a>
             </div>
         </div>
+        <div class="row justify-content-center mt-5">
+        <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
+                
+                <a class="btn btn-dark" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Why?
+                </a>
+            
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body mb-5 bg-dark text-white" >
+                    <h4 style="font-family: 'Roboto Condensed', sans-serif; font-weight:700; padding-bottom: 2%; color: antiquewhite;">Some people like their coffee just how they like their booze - ice cold.</h4>
+
+<p style="font-family: 'Roboto Condensed', sans-serif; font-weight:400; color: antiquewhite;">The Espresso summer is a cocktail made with espresso and served over ice. Blended with a mixture of freshly squeezed orange juice and juniper fresh gin. Finally, garnished with fresh blackberries and an orange slice. It will carry you through those long, hot summer days and keep you going long into the nights.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 </div>
 {% endblock content %}

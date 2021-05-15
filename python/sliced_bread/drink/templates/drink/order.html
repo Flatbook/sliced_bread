@@ -8,7 +8,7 @@
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-md-4 col-sm-12">
-                        <div class="form-group pt-3">
+                        <div class="form-group p-3">
                             <label for="name">Full Name (Optional)</label>
                             <input class="form-control" type="text" placeholder="Your Name" name="name" />
                         </div>
@@ -17,33 +17,35 @@
 
                 <div class="row">
                     <div class="col-md-4 col-sm-12">
-                        <div class="form-group pt-3">
+                        <div class="form-group p-3">
                             <label for="name">City</label>
                             <input required class="form-control" type="text" placeholder="San Francisco" name="city" />
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-12">
-                        <div class="form-group pt-3">
+                        <div class="form-group p-3">
                             <label for="name">State</label>
                             <input required class="form-control" type="text" placeholder="CA" name="state" />
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-12">
-                        <div class="form-group pt-3">
+                        <div class="form-group p-3">
                             <label for="name">Country</label>
                             <input required class="form-control" type="text" placeholder="USA" name="country" />
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-12">
-                        <div class="form-group pt-3">
+                        <div class="form-group p-3">
                             <label for="name">Quantity (Optional)</label>
                             <input class="form-control" type="text" placeholder="1" name="quantity" />
                         </div>
                     </div>
                 </div>
+                <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
                 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#submitModal">
                     Confirm
                 </button>
+                </div>
 
                 <!-- Modal -->
                 <div class="modal fade" id="submitModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">
