@@ -1,4 +1,4 @@
-package com.interview.sonder.sliced_bread;
+package com.interview.sonder.slicedbread;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

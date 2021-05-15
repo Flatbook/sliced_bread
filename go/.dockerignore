@@ -1,0 +1,8 @@
+.github/
+.gitignore
+.idea
+bin/
+Makefile
+coverage.out
+_kubernetes
+scratch/

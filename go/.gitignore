@@ -1,0 +1,6 @@
+.idea/
+.generated/
+bin/
+coverage.out
+scratch/
+*.iml

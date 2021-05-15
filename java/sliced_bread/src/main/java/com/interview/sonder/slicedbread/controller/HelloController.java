@@ -1,4 +1,4 @@
-package com.interview.sonder.sliced_bread;
+package com.interview.sonder.slicedbread.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
