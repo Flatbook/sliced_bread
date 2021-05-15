@@ -18,10 +18,10 @@ A email system could be implemented so the unique order details url page could b
 
 # How it works
 
--A user visits the base site and is brought to the landing page with a: Picture of the drink, the name, a why button, and a call to action button
--Two action options: Why and Start sipping. Why: leads to a description of why the drink is great in a toggle blurb. Start sipping: leads to the order form to collect user data
--After entering user data the user is presented with the order details
+- A user visits the base site and is brought to the landing page with a: Picture of the drink, the name, a why button, and a call to action button
+- Two action options: Why and Start sipping. Why: leads to a description of why the drink is great in a toggle blurb. Start sipping: leads to the order form to collect user data
+- After entering user data the user is presented with the order details
 
 ***OTHER***
--I added pillow to the docker requirements.txt to host the images needed on localhost
--to run tests run: python manage.py test
+- I added pillow to the docker requirements.txt to host the images needed on localhost
+- to run tests run: python manage.py test
