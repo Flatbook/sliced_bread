@@ -1,17 +1,18 @@
-from django.db import models
-
 import string
 import random
+
+from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
 def unique_code_generator():
-        length = 6
-        while True:
-            code = ''.join(random.choices(string.ascii_uppercase, k=length))
-            if OrderModel.objects.filter(code=code).count() == 0:
-                break
-        return code
+    length = 6
+    while True:
+        code = ''.join(random.choices(string.ascii_uppercase, k=length))
+        if OrderModel.objects.filter(code=code).count() == 0:
+            break
+    return code
 
 def name_generator():
     name = ''.join(random.choices(string.ascii_letters, k=4))
@@ -30,4 +31,4 @@ class OrderModel(models.Model):
         return f'Order: {self.created_on.strftime("%b %d %I: %M %p")}'
 
     def get_absolute_url(self):
-        return reverse('order_detail', kwargs={'slug': self.slug}) 
+        return reverse('order_detail', kwargs={'slug': self.slug})

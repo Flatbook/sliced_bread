@@ -19,10 +19,10 @@ class Order(View):
         country = request.POST.get('country')
         quantity = request.POST.get('quantity')
 
-        if (name==''):
+        if name == '':
             name = name_generator()
 
-        if(quantity==''):
+        if quantity == '':
             quantity = 12
 
         code = unique_code_generator()
@@ -52,3 +52,4 @@ class Order(View):
 class OrderDetailView(DetailView):
     model = OrderModel
     template_name = 'order_detail.html'
+    
