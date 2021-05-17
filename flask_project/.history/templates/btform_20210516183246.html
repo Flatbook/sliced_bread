@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div>
+  <p class="display-6" style="text-align: center; padding: 40px 40px">Your order details are</p></br>
+  <p >name : {{ form.name.data}} </br>
+  number of drinks: {{ form.total.data}}
+  </p>
+  </div>
+
+{% endblock %}

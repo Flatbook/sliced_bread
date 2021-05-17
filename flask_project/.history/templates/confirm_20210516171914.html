@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form method="POST">
+{{ form.name (class ="form-label") }}
+{{ form.total (class ="form-label") }}
+</form>
+
+<p>To track your order <a href= "/checkout.html"></a></p>
+
+{% endblock %}

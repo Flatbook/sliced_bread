@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<h1>hey</h1>
+
+<form method = "POST" action ="{{ url_for('checkout')}}">
+	{{ form. csrf_token }}
+	{{ form.name.label}}
+
+	{{ form.name }}
+
+	{{ form.lname.label }}
+	{{ form.lname }}
+	{{ form.city.label}}
+	{{ form.city }}
+	{{ form.state.label }}
+	{{ form.state }}
+	{{ form.country.label }}
+	{{ form.country }}
+</br>
+
+	{{ form.submit }}
+</form>
+   
+<!-- {% if name %}
+	<h1>Hello {{ name }}!!</h1>
+	<br/>
+	<img src="{{ url_for('static', filename='images/NorthPeak.png')}}" width=1100>
+	<br/><br/>
+	<p id="demo">This is stuff...</p>
+
+<script src="{{ url_for('static', filename='js/myfile.js')}}"></script>
+
+
+{% else %}
+	<h1>What's Your Name?</h1>
+	<br/>
+	<form method="POST">
+		{{ form.hidden_tag() }}
+
+		{{ form.name.label(class="form-label") }}
+
+		{{ form.name(class="form-control") }}
+		<br/>
+		
+		{{ form.submit(class="btn btn-secondary") }}
+
+
+	</form>
+
+
+
+{% endif %}
+
+{% endblock %} -->

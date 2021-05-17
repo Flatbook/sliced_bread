@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form method="POST">
+    <p>'Dear{}, your order for {} drinks is placed successfully.'.format(form.name.data,form.total.data)</p>
+
+</form>
+<h1>order successful</h1>
+<p>To track your order <a href= "/checkout.html"></a></p>
+
+{% endblock %}

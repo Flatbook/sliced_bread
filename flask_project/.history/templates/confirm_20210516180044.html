@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div>
+<p class ="d-flex flex-row display-4 fs-2" style="padding: 30px 30px;"> Dear
+{{ form.name.data }} congratulations on your order of 
+{{ form.total.data }} drinks. Your order is placed successfully.</br>
+</div>
+<div>
+To track your order,visit
+</div>
+<a href= "/checkout.html">here</a></p>
+
+{% endblock %}

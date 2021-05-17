@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form method = "POST" action ="{{ url_for('checkout')}}" style="padding: 20px 20px;">
+	{{ form. csrf_token }}
+	{{ form.name.label(class ="form-label")}}
+
+	{{ form.name (class ="form-label") }}
+
+	{{ form.lname.label (class ="form-label") }}
+	{{ form.lname (class ="form-label") }}
+</br>
+
+	{{ form.city.label (class ="form-label")}}
+	{{ form.city (class ="form-label" description="tap to enter") }}
+</br>
+
+	{{ form.state.label (class ="form-label")}}
+	{{ form.state (class ="form-label") }}
+</br>
+
+	{{ form.country.label (class ="form-label") }}
+	{{ form.country (class ="form-label") }}
+</br>
+
+	{{ form.total.label (class ="form-label") }}
+	{{ form.total (class ="form-label") }}
+</br>
+
+	{{ form.submit (class ="btn-secondary") }}
+</form>
+   
+<!-- {% if name %}
+	<h1>Hello {{ name }}!!</h1>
+	<br/>
+	<img src="{{ url_for('static', filename='images/NorthPeak.png')}}" width=1100>
+	<br/><br/>
+	<p id="demo">This is stuff...</p>
+
+<script src="{{ url_for('static', filename='js/myfile.js')}}"></script>
+
+
+{% else %}
+	<h1>What's Your Name?</h1>
+	<br/>
+	<form method="POST">
+		{{ form.hidden_tag() }}
+
+		{{ form.name.label(class="form-label") }}
+
+		{{ form.name(class="form-control") }}
+		<br/>
+		
+		{{ form.submit(class="btn btn-secondary") }}
+
+
+	</form>
+
+
+
+{% endif %}
+
+{% endblock %} -->

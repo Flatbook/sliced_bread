@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for drink in drinks %}
+        <h2>{{drink.title}}</h2>
+        <p>{{drink.description}}</p>
+        <img src="{{url_for('static', filename='drink2.jpg', width=400, height=300, align=center)}}"/>
+    {% endfor %}
+{% endblock %}

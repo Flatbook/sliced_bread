@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% for detail in details %}
+<h3> Dear
+{{ details.firstname }} congratulations on your order of 
+{{ form.total }} drinks. Your order is placed successfully.
+</h3>
+<p>to track you order, visit</p>
+
+<p>To track your order <a href= "/checkout.html"></a></p>
+
+{% endfor %}
+{% endblock %}
