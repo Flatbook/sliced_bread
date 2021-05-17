@@ -1,8 +1,0 @@
-{% extends "layout.html" %}
-{% block content %}
-    {% for drink in drinks %}
-        <h2>{{drink.title}}</h2>
-        <p>{{drink.description}}</p>
-        <img src="{{ user_image }}" width="400"/>
-    {% endfor %}
-{% endblock %}

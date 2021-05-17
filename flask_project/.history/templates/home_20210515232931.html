@@ -1,9 +1,0 @@
-{% extends "layout.html" %}
-{% block content %}
-    {% for drink in drinks %}
-        <p class="display-5" style="padding: 10px 10px">{{drink.title}}</p>
-        <img src="{{ user_image }}" width="300" height="400" class="mx-auto d-block" style="padding: 10px 10px"/>
-
-        <p style="text-align: center">{{drink.description}}</p>
-    {% endfor %}
-{% endblock %}
