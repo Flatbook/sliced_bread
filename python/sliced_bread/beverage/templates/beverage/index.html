@@ -1,0 +1,12 @@
+{% load static%}
+
+{% block page_content %}
+
+    <h1>Greatest Beverage</h1>
+    <form action="{% url 'beverage:index' %}" method='post'>
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Submit</button>
+    </form>
+   
+{% endblock %}
