@@ -27,11 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Application definition
 
 INSTALLED_APPS = [
     'beverage',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -1,12 +1,25 @@
+{% extends "beverage/base.html" %}
+{% load crispy_forms_tags %}
 {% load static%}
 
 {% block page_content %}
-
-    <h1>Greatest Beverage</h1>
-    <form action="{% url 'beverage:index' %}" method='post'>
-    {% csrf_token %}
-    {{form}}
-    <button type="submit">Submit</button>
-    </form>
-   
+    <div class="row h-100">
+      <div class="landing col-md-8">
+        <div class="container mt-5">
+          <h1>Introducing the Mars-tini</h1>
+          <p>This new cocktail will take you out of this world! With an interstellar blend of fruity and citrus flavours, the Mars-tini will make you never want to come back down to earth. Shoot for the stars and place your order today!</p>
+          <img class="mx-auto" src="{% static 'beverage/images/drink.png' %}" alt="">
+        </div>
+      </div>
+      <div class="col-md-4 bg-light">
+          <div class='container-fluid bg-light mt-5' height='100%'>
+              <h5> Place your order below: </h5>
+              <form action="{% url 'beverage:index' %}" method='post'>
+                {% csrf_token %}
+                {{form|crispy}}
+                <input class="btn btn-dark" type="submit" value="Launch">
+              </form>
+          </div>
+      </div>
+    </div>
 {% endblock %}

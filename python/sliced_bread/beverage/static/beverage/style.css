@@ -1,0 +1,14 @@
+.landing {
+    background: url("images/background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    font-family: "Courier New", monospace;
+}
+img {
+    width: 500px;
+    height: auto
+}
