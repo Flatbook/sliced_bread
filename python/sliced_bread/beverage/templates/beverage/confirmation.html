@@ -1,0 +1,37 @@
+{% extends "beverage/base.html" %}
+{% block page_content %}
+  <div class="container mt-5">
+    <h1 class="display-3">Thank you!</h1>
+    <p class='lead'>Your order has been received.</p>
+    <table class='table'>
+      <tbody>
+        <tr>
+          <td><strong>Confirmation Number</strong></td>
+          <td>{{order.confirmation_number}}</td>
+        </tr>
+        <tr>
+          <td><strong>Name</strong></td>
+          <td>{{order.customer}}</td>
+        </tr>
+        <tr>
+          <td><strong>Quantity</strong></td>
+          <td>{{order.quantity}}</td>
+        </tr>
+        <tr>
+          <td><strong>City</strong></td>
+          <td>{{order.city}}</td>
+        </tr>
+        <tr>
+          <td><strong>State/Province</strong></td>
+          <td>{{order.province}}</td>
+        </tr>
+        <tr>
+          <td><strong>Country</strong></td>
+          <td>{{order.country}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br/>
+    <a class="btn btn-primary" href={%url 'beverage:index' %}>Home<a>
+  </div>
+{% endblock %}
