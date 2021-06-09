@@ -1,0 +1,26 @@
+{% extends 'drink/base.html' %}
+
+{% block content %}
+<div class="container mb-5">
+    <div class="row justify-content-center mt-1">
+        <div class="col-md-5 col-sm-12 p-4 text-center">
+            <h1>Order Submitted!</h1>
+            <p>You should receive a confirmation email soon.</p>
+            <a href="{% url 'index' %}">Go to the homepage</a>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5 col-sm-12 text-center">
+            <h3 class="pb-3">Order Summary:</h3>
+            <p class="font-weight-bold">Quantity: {{ object.quantity }}</p>
+            <p class="font-weight-bold">Confirmation Code: {{ object.code }}</p>
+            <p class="font-weight-bold">Name: {{ object.name }}</p>
+            <p class="font-weight-bold">City: {{ object.city }}</p>
+            <p class="font-weight-bold">State: {{ object.state }}</p>
+            <a href=/{{ object.code }} class="font-weight-bold">Revisit this receipt at
+                localhost:8000/{{ object.code }}</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
