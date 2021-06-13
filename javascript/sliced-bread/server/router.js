@@ -1,12 +1,15 @@
 const express = require('express')
 
-const homeControllers = require('./controllers/homeController.js')
+const homeController = require('./controllers/homeController.js')
+const drinkController = require('./controllers/drinkController.js')
+const orderController = require('./controllers/orderController.js')
 
 const router = express.Router()
 
-router.get('/', homeControllers.homeGet)
+router.get('/', homeController.homeGet)
 
-router.get('/get-best-drink', homeControllers.bestDrink)
-
+router.get('/get-best-drink', drinkController.bestDrink)
+router.post('/place-order', orderController.placeOrder)
+router.get('/order/:id', orderController.getOrder)
 
 module.exports = router

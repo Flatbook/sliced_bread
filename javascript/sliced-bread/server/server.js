@@ -17,10 +17,9 @@ const app = express()
 app.use(cors())
 app.use(helmet())
 app.use(compression())
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
 
 if (process.env.NODE_ENV && process.env.NODE_ENV !== 'development') {
     app.get('*', (req, res) => {
@@ -28,17 +27,14 @@ if (process.env.NODE_ENV && process.env.NODE_ENV !== 'development') {
   })
 }
 
-// Implement route for '/api' endpoint
 app.use('/api', Router)
 
-// Implement route for errors
-app.use((err, req, res, next) => {
-   console.error(err.stack)
+app.use((err, req, res) => {
+   throw(err)
 
    res.status(500).send('Something broke!')
 })
 
-// Start express app
 app.listen(PORT, function() {
   console.log(`Server is running on: ${PORT}`)
 })
