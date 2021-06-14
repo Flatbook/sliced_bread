@@ -1,11 +1,16 @@
 import "./App.css";
 import React, {useEffect, useState} from "react";
+import { Wrapper } from "./components/wrapper";
+import { Drink } from "./pages/drink";
+import { Order } from "./pages/order";
+// @ts-ignore hookrouter is not typed
+import { useRoutes } from "hookrouter";
 
 function App () {
-  const [message, setMessage] = useState<string>("");
+    const [message, setMessage] = useState<string>("");
 
     const fetchMessage = async () => {
-        const message = await fetch('/api');
+        const message = await fetch("/api");
         setMessage(await message.text());
     }
 
@@ -13,14 +18,18 @@ function App () {
         fetchMessage().then(r => console.log(r));
     },[])
 
+    const routes  = {
+        "/": () => <Drink title={message}/>,
+        "/order/:id":({id}: {id:string}) => <Order id={id} />
+    }
+
+    const match = useRoutes(routes);
+
   return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">{message}</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+          <Wrapper>
+              {match || "Not found 404"}
+          </Wrapper>
       </div>
   )
 }
