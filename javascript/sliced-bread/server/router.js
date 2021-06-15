@@ -10,6 +10,7 @@ router.get('/', homeController.homeGet)
 
 router.get('/get-best-drink', drinkController.bestDrink)
 router.post('/place-order', orderController.placeOrder)
+router.get('/orders', orderController.getOrders)
 router.get('/order/:id', orderController.getOrder)
 
 module.exports = router

@@ -21,7 +21,7 @@ exports.placeOrder = async (req, res) => {
 
   orders.push(order);
 
-  res.json(orders);
+  res.json(order.order_id);
 }
 
 exports.getOrder = async (req, res) => {
@@ -31,4 +31,8 @@ exports.getOrder = async (req, res) => {
     res.send("invalid order! ");
   }
   res.json(order);
+}
+
+exports.getOrders = async (req, res) => {
+  res.json(orders);
 }

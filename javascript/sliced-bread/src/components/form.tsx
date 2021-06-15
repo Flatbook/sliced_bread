@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 import {makeStyles} from "@material-ui/core";
+import {RequestOrderType} from "../types/requestOrder.type";
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -15,23 +16,10 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-interface IFormInput {
-  name: string;
-  quantity: number;
-  city: string;
-  state: string;
-  country: string;
-  iceCreamType: {label: string; value: string };
-}
-
-export default function Form() {
+export const Form:React.FC<{onSubmit: SubmitHandler<RequestOrderType>}> = ({onSubmit}) => {
   const classes = useStyles();
 
-  const { control, handleSubmit, formState: { errors } } = useForm<IFormInput>();
-
-  const onSubmit: SubmitHandler<IFormInput> = data => {
-    alert(JSON.stringify(data));
-  };
+  const { control, handleSubmit, formState: { errors } } = useForm<RequestOrderType>();
 
   return (
     <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
