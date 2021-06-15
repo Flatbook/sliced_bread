@@ -1,5 +1,5 @@
 import "./App.css";
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { Wrapper } from "./components/wrapper";
 import { Drink } from "./pages/drink";
 import { Order } from "./pages/order";
@@ -7,19 +7,8 @@ import { Order } from "./pages/order";
 import { useRoutes } from "hookrouter";
 
 function App () {
-    const [message, setMessage] = useState<string>("");
-
-    const fetchMessage = async () => {
-        const message = await fetch("/api");
-        setMessage(await message.text());
-    }
-
-    useEffect( () => {
-        fetchMessage().then(r => console.log(r));
-    },[])
-
     const routes  = {
-        "/": () => <Drink title={message}/>,
+        "/": () => <Drink />,
         "/order/:id":({id}: {id:string}) => <Order id={id} />
     }
 

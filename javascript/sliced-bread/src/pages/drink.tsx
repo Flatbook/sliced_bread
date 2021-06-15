@@ -1,14 +1,25 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Page } from "../components/page";
 import {FormSection} from "../views/formSection";
 import {DescriptionSection} from "../views/descritpionSection";
 import {HeroSection} from "../views/heroSection";
+import Server from "../server/server";
+import {DrinkType} from "../types/drink.type";
 
-export const Drink:React.FC<{title: string}> = ({title}) => {
+export function Drink(){
+
+    const [drink, setDrink] = useState<DrinkType>(Object.create(null));
+
+    useEffect(  () => {
+        Server.getBestDrink<DrinkType>().then((res)=> {
+            setDrink(res);
+        });
+    },[])
+
     return (
         <Page>
             <HeroSection />
-            <DescriptionSection title={title} des="How good is this drink"/>
+            <DescriptionSection title={drink.name} des={drink.description} />
             <FormSection />
         </Page>
     )
