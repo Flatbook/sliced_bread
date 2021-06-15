@@ -36,6 +36,15 @@ const server = {
       throw Error("Can not get data from server");
     }
   },
+
+  getOrder : async (orderId: string): Promise<OrderType> => {
+    try {
+      const res = await instance.get(`/order/${orderId}`);
+      return res?.data;
+    } catch (e) {
+      throw Error(e);
+    }
+  },
 };
 
 export default server;

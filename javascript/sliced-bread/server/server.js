@@ -32,7 +32,7 @@ app.use('/api', Router)
 app.use((err, req, res) => {
    throw(err)
 
-   res.status(500).send('Something broke!')
+   res.status(500).json({ error: err.toString() })
 })
 
 app.listen(PORT, function() {

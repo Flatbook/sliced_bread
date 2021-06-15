@@ -28,9 +28,10 @@ exports.getOrder = async (req, res) => {
   const order = orders.find(order => order.order_id === req.params.id);
 
   if(!order) {
-    res.send("invalid order! ");
+    res.status(400).json({ error: "Invalid orderId!" });
   }
-  res.json(order);
+
+  res.json(order)
 }
 
 exports.getOrders = async (req, res) => {

@@ -3,6 +3,7 @@ import {makeStyles} from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   section: {
     marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
