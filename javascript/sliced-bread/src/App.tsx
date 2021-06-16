@@ -7,12 +7,12 @@ import { Order } from "./pages/order";
 import { useRoutes } from "hookrouter";
 
 function App () {
-    const routes  = {
+   const routes  = {
         "/": () => <Drink />,
         "/order/:id":({id}: {id:string}) => <Order id={id} />
     }
 
-    const match = useRoutes(routes);
+  const match = useRoutes(routes);
 
   return (
       <div className="App">

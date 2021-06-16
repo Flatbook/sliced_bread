@@ -2,14 +2,12 @@ import React from "react";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
-import {makeStyles} from "@material-ui/core";
-import {RequestOrderType} from "../types/requestOrder.type";
+import { makeStyles } from "@material-ui/core";
+import { RequestOrderType } from "../types/requestOrder.type";
 
 const useStyles = makeStyles((theme) => ({
   form: {
-    marginTop: theme.spacing(8),
-    maxWidth: '80%',
+    maxWidth: "80%"
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -70,7 +68,6 @@ export const Form:React.FC<{onSubmit: SubmitHandler<RequestOrderType>}> = ({onSu
         type="submit"
         fullWidth
         variant="contained"
-        color="primary"
         className={classes.submit}
       >
         YES! Give me the best beverage ever!

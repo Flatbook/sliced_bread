@@ -1,9 +1,8 @@
 import React from "react";
 
-export const Page:React.FC<{title?: string}> = ({title, children}) => {
+export const Page:React.FC = ({ children}) => {
     return (
         <>
-            <h1>{title}</h1>
             {children}
         </>
     )
