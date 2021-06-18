@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Page } from "../components/page";
+import {Page} from "../components/page";
 import {FormSection} from "../views/formSection";
 import {DescriptionSection} from "../views/descritpionSection";
 import {HeroSection} from "../views/heroSection";

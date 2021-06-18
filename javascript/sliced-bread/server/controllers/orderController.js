@@ -1,7 +1,7 @@
 const { generateOrderId } = require("../utils/utils");
 
 // TODO: move to save in json file
-let orders = [];
+let orders = new Set();
 
 exports.placeOrder = async (req, res) => {
 
@@ -19,13 +19,13 @@ exports.placeOrder = async (req, res) => {
     order_date: new Date()
   };
 
-  orders.push(order);
+  orders.add(order);
 
   res.json(order.order_id);
 }
 
 exports.getOrder = async (req, res) => {
-  const order = orders.find(order => order.order_id === req.params.id);
+  const order = Array.from(orders).find(order => order.order_id === req.params.id);
 
   if(!order) {
     res.status(400).json({ error: "Invalid orderId!" });
