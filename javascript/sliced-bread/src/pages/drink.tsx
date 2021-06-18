@@ -8,6 +8,7 @@ import {DrinkType} from "../types/drink.type";
 import {SubmitHandler} from "react-hook-form";
 import {RequestOrderType} from "../types/requestOrder.type";
 import {SuccessSection} from "../views/successSection";
+import {generateRandomName, generateRandomQuantity} from "../utils/utils";
 
 export function Drink(){
     const [drink, setDrink] = useState<DrinkType>(Object.create(null));
@@ -21,6 +22,14 @@ export function Drink(){
 
 
     const onSubmitPlaceOrder: SubmitHandler<RequestOrderType> = async data => {
+        if (!data.name) {
+            data.name = generateRandomName();
+        }
+
+        if(!data.quantity) {
+            data.quantity = generateRandomQuantity();
+        }
+
         const generatedOrderUrl = await Server.placeOrder(data);
         setOrderUrl(generatedOrderUrl);
     };
