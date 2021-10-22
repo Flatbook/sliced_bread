@@ -49,7 +49,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
         <Typography variant="subtitle2">Order Confirmation Number: {order.customer_reference}</Typography>
       </div>
       <br />
-          <Button component={Link} variant="outlined" type="button" to="/confirmation">Go to confirmation page</Button>
+          <Button component={Link} variant="outlined" type="button" to={order.customer_reference}>Go to confirmation page</Button>
       <br /><br /><br />
       <Button component={Link} variant="outlined" type="button" to="/">Back to home</Button>
     </>

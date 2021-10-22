@@ -3,28 +3,7 @@ import React from 'react'
 const Confirmation = () => {
   return (
     <>
-      <div>
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-      Confirmation Page
-    </div>
+      <div>Your Order has been confirmed. See you soon!</div>
     </>
     
   )
