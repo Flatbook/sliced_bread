@@ -74,7 +74,8 @@ When we are reviewing your Pull Request, these are the areas we will be focusing
 * Run `java -jar sliced_bread-0.0.1-SNAPSHOT.jar`
 * Once the server is up and running go to `http://localhost:8080` and you should see the image below
 ![Screenshot](finished.png)
-
+Edit: This is my new landing page:
+![Screenshot](landingPage.png)
 ### Reference Documentation
 For further reference, please consider the following sections:
 
