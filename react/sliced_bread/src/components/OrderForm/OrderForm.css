@@ -1,0 +1,96 @@
+.title {
+  font-size: 2.5rem;
+}
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 450px;
+  height: 80vh;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+
+.order-form-button {
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  padding: 5px 15px;
+  background: black;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.order-form > input {
+  border: none;
+  border-bottom: 0.1em solid black;
+  font-size: 1.1rem;
+  padding: 10px;
+  width: 80%;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.error-label {
+  color: red;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.order-summary {
+  width: 600px;
+  height: 80vh;
+}
+
+.order-summary-brief {
+  line-height: 1.5;
+}
+
+.order-summary-details {
+  margin-top: 50px;
+}
+
+.order-sumary-details__num {
+  color: gray;
+}
+
+.order-sumary-details__list {
+  overflow-y: scroll;
+}
+
+.milkshake-detail {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.milkshake-detail__image {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.milkshake-detail__info {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.milkshake-info__description > h3 {
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.milkshake_info__description__blurb {
+  margin: 0;
+  font-size: 0.6rem;
+}
