@@ -1,0 +1,41 @@
+<app-header></app-header>
+<app-bev-about></app-bev-about>
+<div class="container">
+  <h5>Order Form</h5>
+  <form>
+    <div class="form-group" style="text-align: left;">
+      <label for="name">Name:</label>
+      <input id="name" name="name" type="text" class="form-control fields" [(ngModel)]="newOrder.name"><br>
+    </div>
+    <div class="form-group" style="text-align: left;">
+      <label for="qty">Quantity:</label>
+      <input id="qty" value="2" placeholder="2" min="2" max="20" name="qty" type="number" class="form-control fields" [(ngModel)]="newOrder.qty"><br>
+    </div>
+    <div class="form-group" style="text-align: left;">
+      <label for="city">City:</label>
+      <input id="city" name="city" type="text" class="form-control fields" #city="ngModel" required
+        [(ngModel)]="newOrder.city"><br>
+      <div class="alert alert-danger" *ngIf="city.touched && !city.valid">
+        City is required
+      </div>
+    </div>
+    <div class="form-group" style="text-align: left;">
+      <label for="prov">Province / State:</label>
+      <input id="prov" name="prov" type="text" class="form-control fields" #prov="ngModel" required
+        [(ngModel)]="newOrder.prov"><br>
+      <div class="alert alert-danger" *ngIf="prov.touched && !prov.valid">
+        Province / State is required
+      </div>
+    </div>
+    <div class="form-group" style="text-align: left;">
+      <label for="cntry">Country:</label>
+      <input id="cntry" name="cntry" type="text" class="form-control fields" #cntry="ngModel" required
+        [(ngModel)]="newOrder.cntry"><br>
+      <div class="alert alert-danger" *ngIf="cntry.touched && !cntry.valid">
+        Country is required
+      </div>
+    </div>
+    <br>
+    <button (click)="submitOrder()" class="btn btn-primary">Buy Now</button>
+  </form>
+</div>
