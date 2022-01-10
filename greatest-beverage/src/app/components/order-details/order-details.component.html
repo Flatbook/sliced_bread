@@ -1,0 +1,27 @@
+<br>
+<h2>Your order has been placed!</h2>
+<h4>See the details below</h4><br>
+
+<h6>Confirmation Number: {{ idOrder.id }}</h6><br>
+<div class="field">
+  <label>Name:</label>&nbsp;
+  <p>{{ idOrder.name }}</p>
+</div>
+<div class="field">
+  <label>Quantity:</label>&nbsp;
+  <p>{{ idOrder.qty }}</p>
+</div>
+<div class="field">
+  <label>City:</label>&nbsp;
+  <p>{{ idOrder.city }}</p>
+</div>
+<div class="field">
+  <label>Country:</label>&nbsp;
+  <p>{{ idOrder.cntry }}</p>
+</div>
+<div class="field">
+  <label>Province / State:</label>&nbsp;
+  <p>{{ idOrder.prov }}</p>
+</div>
+<br>
+<button (click)="goHome()" class="btn btn-primary field">Return to Home</button>
