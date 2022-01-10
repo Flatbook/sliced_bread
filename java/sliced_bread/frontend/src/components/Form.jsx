@@ -7,21 +7,22 @@ export const Form = ({ formTitle = "", formTemplate = [] }) => {
   const [values, setValues] = useState(formTemplate);
   const [isValid, setIsValid] = useState(true);
   const navigate = useNavigate();
+
+  const MAX_ORDER_SIZE = 2147483647;
   const API_URL = "/order";
 
   const handleSubmit = (e) => {
     e.preventDefault();
     //Send to backend and generate order ID
-    API.postData(API_URL, JSON.stringify(values)).then((data) => {
-      console.log(data);
-      isValid && navigate(`/order/${data.uuid}`);
-    });
+    API.postData(API_URL, JSON.stringify(values)).then(
+      (data) => isValid && navigate(`/order/${data.uuid}`)
+    );
   };
 
   // Validation
   const validateForm = (label, input) => {
     if (label === "amount") {
-      isNaN(input) || input > Number.MAX_SAFE_INTEGER
+      isNaN(input) || input > MAX_ORDER_SIZE || input < 1
         ? setIsValid(false)
         : setIsValid(true);
     }
