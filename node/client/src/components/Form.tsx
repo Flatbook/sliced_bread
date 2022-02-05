@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
-import OrderConfirmation from "./OrderConfirmation";
 import "./styles/Form.css";
+import { FaAngleDoubleLeft } from "react-icons/fa";
+
+type Props = {
+  toggleOrder: boolean;
+  setToggleOrder: (boolean: boolean) => void;
+};
 
 interface FormInput {
   firstName: string;
@@ -13,9 +18,8 @@ interface FormInput {
   country: string;
 }
 
-export const Form = () => {
+export const Form: React.FC<Props> = ({ setToggleOrder, toggleOrder }) => {
   const { register, handleSubmit } = useForm<FormInput>();
-  // const [confirmedOrder, setConfirmedOrder] = useState<boolean>(false);
 
   let navigate = useNavigate();
   const routeChange = () => {
@@ -47,6 +51,10 @@ export const Form = () => {
 
   return (
     <div>
+      <FaAngleDoubleLeft
+        style={{ fontSize: "20px" }}
+        onClick={() => setToggleOrder(!toggleOrder)}
+      />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="firstName">First Name</label>
