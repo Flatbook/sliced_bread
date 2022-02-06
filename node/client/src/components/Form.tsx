@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
+import axios from "axios";
+import sjcl from "sjcl";
 import "./styles/Form.css";
 import { FaAngleDoubleLeft } from "react-icons/fa";
 
@@ -23,8 +24,9 @@ interface FormInput {
 
 interface OrderDetails {
   id: number;
-  firstName: string;
-  lastName: string;
+  name: any;
+  // firstName: string;
+  // lastName: string;
   quantity: number;
   city: string;
   province: string;
@@ -79,9 +81,26 @@ export const Form: React.FC<Props> = ({
     if (!data.quantity) {
       data.quantity = 12;
     }
+    // adding encryption of customer first and last name to protect user information
+    let password: string = "encryptData71&$";
+    let name: string = `${data.firstName} ${data.lastName}`;
+    var parameters: any = { iter: 1000 };
+    var rp: any = {};
+    var cipherTextJson: any = {};
+
+    sjcl.misc.cachedPbkdf2(password, parameters);
+    cipherTextJson = sjcl.encrypt(password, name, parameters, rp);
+    console.log("encrypted", cipherTextJson);
+
+    var decryptedText = sjcl.decrypt(password, cipherTextJson);
+    console.log("decrypted", decryptedText);
+
     //creating an unique id for each order
     let id: number = Math.floor(Math.random() * 100000);
-    setOrderDetails([{ ...data, id }]);
+    const { quantity, city, province, country } = data;
+    setOrderDetails([
+      { id, name: cipherTextJson, quantity, city, province, country },
+    ]);
   };
 
   useEffect(() => {

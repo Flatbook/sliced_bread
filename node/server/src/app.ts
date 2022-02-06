@@ -1,4 +1,5 @@
 import express, { Application, Request, Response } from "express";
+import sjcl from "sjcl";
 
 const cors = require("cors");
 
@@ -16,6 +17,11 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.post("/order/:id", (req: Request, res: Response) => {
+  //decrypting incoming data
+  let password: string = "encryptData71&$";
+  var decryptedText = sjcl.decrypt(password, req.body.name);
+  console.log("decrypteddd", decryptedText);
+
   const id = req.params.id;
   console.log("REQ", req.body);
   res.send(id);
