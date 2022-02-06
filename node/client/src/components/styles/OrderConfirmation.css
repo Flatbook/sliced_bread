@@ -1,0 +1,17 @@
+.order-confirmation-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3%;
+}
+
+.order-confirmation-number {
+  color: #f16029;
+  font-weight: bold;
+  font-style: italic;
+}
+.notification {
+  padding: 3% 0.5%;
+  /* margin: 0.5% 0; */
+}

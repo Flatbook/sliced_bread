@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+}
+
 .App {
   margin: 0 auto;
   padding: 0;
@@ -5,6 +9,7 @@
   background: linear-gradient(#f5f7f4ff, #f5f7f4ff, #f1f3f0ff, #f1f1efff);
   height: 100vh;
 }
+
 h1 {
   font-weight: normal;
   letter-spacing: 0.2rem;
@@ -12,6 +17,8 @@ h1 {
 }
 h3 {
   letter-spacing: 0.1rem;
+  font-weight: normal;
+  font-family: "Roboto", sans-serif;
 }
 h4 {
   font-weight: normal;
