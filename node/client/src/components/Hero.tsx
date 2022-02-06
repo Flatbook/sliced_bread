@@ -1,10 +1,14 @@
-import { ReactChild, useState } from "react";
+import { useState } from "react";
 import "./styles/Hero.css";
-import drinkPhoto from "../assets/drinkPhoto.jpg";
 import orangeVanilla from "../assets/orangeVanilla.jpg";
 import Form from "./Form";
 
-export const Hero = () => {
+type Props = {
+  setOrderNumber: (number: number) => void;
+  orderNumber: number | undefined;
+};
+
+export const Hero: React.FC<Props> = ({ setOrderNumber, orderNumber }) => {
   const [toggleOrder, setToggleOrder] = useState<boolean>(false);
 
   return (
@@ -13,14 +17,21 @@ export const Hero = () => {
         <h1>LeSeltzer</h1>
 
         {toggleOrder ? (
-          <Form toggleOrder={toggleOrder} setToggleOrder={setToggleOrder} />
+          <Form
+            setOrderNumber={setOrderNumber}
+            toggleOrder={toggleOrder}
+            setToggleOrder={setToggleOrder}
+            orderNumber={orderNumber}
+          />
         ) : (
           <>
             <h4>
               A classic seltzer with a twist! Our natural flavours are exciting
               & little bold, with just the right amount of carbonation.
             </h4>
-            <h3>We are 100% family owned, and made in Montréal.</h3>
+            <h4 className="secondary-text">
+              We are 100% family owned, and made in Montréal.
+            </h4>
             <button
               className="button"
               onClick={() => setToggleOrder(!toggleOrder)}

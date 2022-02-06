@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import "./styles/Form.css";
@@ -7,6 +8,8 @@ import { FaAngleDoubleLeft } from "react-icons/fa";
 type Props = {
   toggleOrder: boolean;
   setToggleOrder: (boolean: boolean) => void;
+  setOrderNumber: (number: number) => void;
+  orderNumber: number | undefined;
 };
 
 interface FormInput {
@@ -18,36 +21,72 @@ interface FormInput {
   country: string;
 }
 
-export const Form: React.FC<Props> = ({ setToggleOrder, toggleOrder }) => {
-  const { register, handleSubmit } = useForm<FormInput>();
+interface OrderDetails {
+  id: number;
+  firstName: string;
+  lastName: string;
+  quantity: number;
+  city: string;
+  province: string;
+  country: string;
+}
 
+export const Form: React.FC<Props> = ({
+  setToggleOrder,
+  toggleOrder,
+  setOrderNumber,
+  orderNumber,
+}) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormInput>();
+  const [orderDetails, setOrderDetails] = useState<OrderDetails[]>([]);
+
+  //logic for navigating to order confirmation page once order submited
   let navigate = useNavigate();
-  const routeChange = () => {
-    let path = `order-confirmation`;
+  const routeChange = (orderNumber: number) => {
+    let path = `order-confirmation/order%number/${orderNumber}`;
     navigate(path);
   };
 
-  const onSubmit: SubmitHandler<FormInput> = ({
-    firstName,
-    lastName,
-    quantity,
-    city,
-    province,
-    country,
-  }) => {
-    // adding default values
-    if (!firstName) {
-      firstName = "Galit";
+  // logic for posting form to backend
+  const postOrder = () => {
+    if (orderDetails.length !== 0) {
+      axios
+        .post(
+          `http://localhost:5002/order/${orderDetails[0].id}`,
+          orderDetails[0]
+        )
+        .then((res) => {
+          console.log("RES", res.data);
+          setOrderNumber(res.data);
+          routeChange(res.data);
+        })
+        .catch((err) => console.log(err));
     }
-    if (!lastName) {
-      lastName = "Gerasimov";
-    }
-    if (!quantity) {
-      quantity = 15;
-    }
-    routeChange();
-    console.log(firstName, lastName, quantity, city, province, country);
   };
+
+  const onSubmit: SubmitHandler<FormInput> = (data: FormInput) => {
+    // adding default values
+    if (!data.firstName) {
+      data.firstName = "Galit";
+    }
+    if (!data.lastName) {
+      data.lastName = "Gerasimov";
+    }
+    if (!data.quantity) {
+      data.quantity = 12;
+    }
+    //creating an unique id for each order
+    let id: number = Math.floor(Math.random() * 100000);
+    setOrderDetails([{ ...data, id }]);
+  };
+
+  useEffect(() => {
+    postOrder();
+  }, [orderDetails]);
 
   return (
     <div>
@@ -71,13 +110,15 @@ export const Form: React.FC<Props> = ({ setToggleOrder, toggleOrder }) => {
         <div>
           <label htmlFor="city">City</label>
           <input placeholder="City" {...register("city", { required: true })} />
+          {errors.city?.type === "required" && "City is Required"}
         </div>
         <div>
-          <label htmlFor="state/province">State/Province</label>
+          <label htmlFor="province">State/Province</label>
           <input
             placeholder="State or Province"
             {...register("province", { required: true })}
           />
+          {errors.province?.type === "required" && "Province is Required"}
         </div>
         <div>
           <label htmlFor="country">Country</label>
@@ -85,6 +126,7 @@ export const Form: React.FC<Props> = ({ setToggleOrder, toggleOrder }) => {
             placeholder="Country"
             {...register("country", { required: true })}
           />
+          {errors.country?.type === "required" && "Country is Required"}
         </div>
         <input type="submit" value="Send" />
       </form>
