@@ -95,8 +95,9 @@ export const Form: React.FC<Props> = ({
     var decryptedText = sjcl.decrypt(password, cipherTextJson);
     console.log("decrypted", decryptedText);
 
-    //creating an unique id for each order
+    //creating an unique order id for each order
     let id: number = Math.floor(Math.random() * 100000);
+
     const { quantity, city, province, country } = data;
     setOrderDetails([
       { id, name: cipherTextJson, quantity, city, province, country },
