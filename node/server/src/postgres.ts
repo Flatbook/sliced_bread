@@ -2,7 +2,7 @@ import sjcl = require("sjcl");
 const { Pool } = require("pg");
 // db configuration
 const pool = new Pool({
-  host: "localhost",
+  host: "host.docker.internal",
   database: "postgres",
   user: "postgres",
   password: "database1",
@@ -14,17 +14,6 @@ const pool = new Pool({
 const index = (request, response) => {
   response.status(200).json({ info: "Application started successfully" });
 };
-
-// application endpoints
-
-// get all users
-// const getUsers = (request, response) => {
-//     console.log('Getting all users');
-//     pool.query('SELECT * FROM users', (err, results) => {
-//         error(err, response);
-//         response.status(200).json({ info: results.rows });
-//     });
-// };
 
 //creating database
 pool
@@ -49,14 +38,11 @@ pool
 
 // save new order
 const save = (request, response) => {
-  console.log("Saving new order");
+  console.log("New order saved");
 
   //decrypting incoming data
   let password: string = "encryptData71&$";
   var decryptedText = sjcl.decrypt(password, request.body.name);
-  console.log("decrypteddd", decryptedText);
-
-  console.log("request", request.body);
 
   const name: unknown = decryptedText.split(" ");
   const first_name: string = name[0];

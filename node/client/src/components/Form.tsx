@@ -93,10 +93,6 @@ export const Form: React.FC<Props> = ({
 
     sjcl.misc.cachedPbkdf2(password, parameters);
     cipherTextJson = sjcl.encrypt(password, name, parameters, rp);
-    console.log("encrypted", cipherTextJson);
-
-    var decryptedText = sjcl.decrypt(password, cipherTextJson);
-    console.log("decrypted", decryptedText);
 
     //creating an unique order id for each order
     let id: number = Math.floor(Math.random() * 100000);
