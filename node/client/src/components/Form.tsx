@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { OrderConfirmation } from "../App";
+
 import axios from "axios";
 import sjcl from "sjcl";
 import "./styles/Form.css";
@@ -11,6 +13,7 @@ type Props = {
   setToggleOrder: (boolean: boolean) => void;
   setOrderNumber: (number: number) => void;
   orderNumber: number | undefined;
+  setOrderConfirmationDetails: (order: OrderConfirmation[]) => void;
 };
 
 interface FormInput {
@@ -25,8 +28,6 @@ interface FormInput {
 interface OrderDetails {
   id: number;
   name: any;
-  // firstName: string;
-  // lastName: string;
   quantity: number;
   city: string;
   province: string;
@@ -38,6 +39,7 @@ export const Form: React.FC<Props> = ({
   toggleOrder,
   setOrderNumber,
   orderNumber,
+  setOrderConfirmationDetails,
 }) => {
   const {
     register,
@@ -63,8 +65,9 @@ export const Form: React.FC<Props> = ({
         )
         .then((res) => {
           console.log("RES", res.data);
-          setOrderNumber(res.data);
-          routeChange(res.data);
+          setOrderConfirmationDetails([res.data]);
+          // setOrderNumber(res.data);
+          routeChange(res.data.order_id);
         })
         .catch((err) => console.log(err));
     }

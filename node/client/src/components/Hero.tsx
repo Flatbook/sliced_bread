@@ -1,14 +1,20 @@
 import { useState } from "react";
 import "./styles/Hero.css";
 import orangeVanilla from "../assets/orangeVanilla.jpg";
+import { OrderConfirmation } from "../App";
 import Form from "./Form";
 
 type Props = {
   setOrderNumber: (number: number) => void;
+  setOrderConfirmationDetails: (order: OrderConfirmation[]) => void;
   orderNumber: number | undefined;
 };
 
-export const Hero: React.FC<Props> = ({ setOrderNumber, orderNumber }) => {
+export const Hero: React.FC<Props> = ({
+  setOrderNumber,
+  orderNumber,
+  setOrderConfirmationDetails,
+}) => {
   const [toggleOrder, setToggleOrder] = useState<boolean>(false);
 
   return (
@@ -22,6 +28,7 @@ export const Hero: React.FC<Props> = ({ setOrderNumber, orderNumber }) => {
             toggleOrder={toggleOrder}
             setToggleOrder={setToggleOrder}
             orderNumber={orderNumber}
+            setOrderConfirmationDetails={setOrderConfirmationDetails}
           />
         ) : (
           <>

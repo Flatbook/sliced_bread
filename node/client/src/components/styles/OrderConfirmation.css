@@ -12,6 +12,40 @@
   font-style: italic;
 }
 .notification {
-  padding: 3% 0.5%;
-  /* margin: 0.5% 0; */
+  padding: 3% 15%;
+}
+
+table {
+  width: 50%;
+}
+
+caption {
+  text-align: left;
+  background-color: #f9ac22;
+  color: #000000;
+  text-transform: uppercase;
+  padding: 5px;
+  margin-top: 3%;
+}
+
+th,
+td {
+  padding: 5px 10px;
+  width: 100%;
+}
+
+tbody tr:nth-child(odd) {
+  display: block;
+  border-bottom: 2px solid black;
+  border-collapse: separate;
+  border-spacing: 4px;
+  background: WhiteSmoke;
+}
+
+tbody tr:nth-child(even) {
+  display: block;
+  border-bottom: 2px solid black;
+  border-collapse: separate;
+  border-spacing: 4px;
+  background: WhiteSmoke;
 }
