@@ -12,9 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "@types/sjcl": "^1.0.30",
+    "bluebird": "^3.7.2",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "pg": "^8.7.3",
+    "pg-promise": "^10.11.1",
     "sjcl": "^1.0.8"
   },
   "devDependencies": {
