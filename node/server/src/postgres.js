@@ -23,6 +23,7 @@ var index = function (request, response) {
 //         response.status(200).json({ info: results.rows });
 //     });
 // };
+//creating database
 pool
     .query("CREATE DATABASE postgres;")
     .then(function (res) { return console.log("created database successfully", res); })["catch"](function (err) {
@@ -46,7 +47,7 @@ var save = function (request, response) {
     var _a = request.body, id = _a.id, quantity = _a.quantity, city = _a.city, province = _a.province, country = _a.country;
     pool
         .query("INSERT INTO pre_orders (order_id, first_name, last_name, quantity, city, province, country) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *", [id, first_name, last_name, quantity, city, province, country])
-        .then(function (res) { return response.send(res.data); });
+        .then(function (res) { return response.send(res.rows[0]); });
 };
 // helper method
 function error(err, response) {

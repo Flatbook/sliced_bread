@@ -68,7 +68,7 @@ const save = (request, response) => {
       "INSERT INTO pre_orders (order_id, first_name, last_name, quantity, city, province, country) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
       [id, first_name, last_name, quantity, city, province, country]
     )
-    .then((res) => response.send(res.data));
+    .then((res) => response.send(res.rows[0]));
 };
 
 // helper method
